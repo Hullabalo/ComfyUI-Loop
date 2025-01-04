@@ -13,6 +13,9 @@ The code is fairly basic, but special care was taken to protect the image data t
 - No preview in the 'Save Image' node if the image is located outside the output folder.
 - Huge file size, because of uncompressed file and quality
 
+**Install**
+- No additional dependencies. Just copy the ComfyUI-Loop folder into Custom Nodes
+
 **FUTURE PLANS**
 
 This is an alpha version put together in one evening. I will revisit the code later, but for now, it works as expected.
