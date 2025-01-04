@@ -1,5 +1,5 @@
 # ComfyUI-Loop
-A pair of nodes to create a simple loop in your workflows. The operating principle is quite straightforward: the image saved by the 'Save Image (LOOP)' node overwrites the image specified in the 'image path' field, allowing it to be automatically reloaded in the next iteration.
+A pair of nodes to create a simple loop in your workflows. The operating principle is quite straightforward: the image saved by the 'Save Image (LOOP)' node overwrites the image specified in the 'image path' field, allowing it to be automatically reloaded in the next iteration. Aimed essentially for inpainting.
 
 ![alt text](https://github.com/Hullabalo/ComfyUI-Loop/blob/main/snappy_snap.png?raw=true)
 
