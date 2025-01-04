@@ -1,0 +1,15 @@
+[project]
+name = "comfyui-loop"
+description = "A pair of nodes to create a simple image loop in your ComfyUI workflow."
+version = "0.0.1"
+license = {file = "LICENSE"}
+dependencies = []
+
+[project.urls]
+Repository = "https://github.com/Hullabalo/ComfyUI-Loop"
+#  Used by Comfy Registry https://comfyregistry.org
+
+[tool.comfy]
+PublisherId = "Hullabaloo"
+DisplayName = "ComfyUI-Loop"
+Icon = "https://github.com/Hullabalo/ComfyUI-Loop/raw/main/inpainting_loop.png"
