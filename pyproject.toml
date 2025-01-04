@@ -1,7 +1,7 @@
 [project]
 name = "comfyui-loop"
-description = "A pair of nodes to create a simple image loop in your ComfyUI workflow."
-version = "0.1"
+description = "A pair of nodes (Load Image and Save Image) to create a simple loop in your ComfyUI inpainting workflow, without the need of loading your last saved image"
+version = "0.1.1"
 license = {file = "LICENSE"}
 dependencies = []
 
@@ -12,4 +12,4 @@ Repository = "https://github.com/Hullabalo/ComfyUI-Loop"
 [tool.comfy]
 PublisherId = "hullabaloo"
 DisplayName = "ComfyUI-Loop"
-Icon = "https://github.com/Hullabalo/ComfyUI-Loop/raw/main/inpainting_loop.png"
+Icon = "https://github.com/Hullabalo/ComfyUI-Loop/blob/main/ComfyUI-Loop.png"
