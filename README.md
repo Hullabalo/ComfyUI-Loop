@@ -23,6 +23,6 @@ The code is fairly basic, but special care was taken to protect the image data t
 **Install**
 - No additional dependencies. Copy the ComfyUI-Loop folder into Custom Nodes and that's it.
 
-**FUTURE PLANS**
+**Future plans**
 
 This is an alpha version put together in one evening. I will revisit the code later, but for now, it works as expected.
