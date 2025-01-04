@@ -1,7 +1,7 @@
 [project]
 name = "comfyui-loop"
 description = "A pair of nodes to create a simple image loop in your ComfyUI workflow."
-version = "0.0.1"
+version = "0.0.1.1"
 license = {file = "LICENSE"}
 dependencies = []
 
