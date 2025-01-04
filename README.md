@@ -7,10 +7,11 @@ The code is fairly basic, but special care was taken to protect the image data t
 
 **Limitations**
 
-No support for image lists as input for 'Save Image (LOOP)'. If provided, only the first image will be saved and displayed.
-If a mask is present, it must match the image format to be saved in the alpha channel of the output image. Otherwise, an error message will appear in the console, and your image will be returned in RGB mode instead of RGBA.
-No preview available in the 'Load Image' node (theoretically, you know what you’ve loaded, right? :) )
-No preview in the 'Save Image' node if the image is located outside the output folder.
+- No support for image lists as input for 'Save Image (LOOP)'. If provided, only the first image will be saved and displayed.
+- If a mask is present, it must match the image format to be saved in the alpha channel of the output image. Otherwise, an error message will appear in the console, and your image will be returned in RGB mode instead of RGBA.
+- No preview available in the 'Load Image' node (theoretically, you know what you’ve loaded, right? :) )
+- No preview in the 'Save Image' node if the image is located outside the output folder.
+- Huge file size, because of uncompressed file and quality
 
 **FUTURE PLANS**
 
