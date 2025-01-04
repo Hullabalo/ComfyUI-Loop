@@ -5,6 +5,12 @@ A pair of nodes to create a simple loop in your workflows. The operating princip
 
 The code is fairly basic, but special care was taken to protect the image data to prevent degradation. Visually, there is no loss in quality after 150 iterations. Theoretically, the same result should hold even after a thousand successive saves.
 
+**Usage**
+- feed image path with a full /path/to/image.png in 'Load Image (Loop)' Node
+- Connect path output to 'Save Image (Loop)' image_path input
+- 'mask' input is optional in 'Save Image (LOOP)' node
+- Set 'save steps' to true if you want to keep a copy of the saved file at each iteration.
+
 **Limitations**
 
 - No support for image lists as input for 'Save Image (LOOP)'. If provided, only the first image will be saved and displayed.
@@ -15,7 +21,7 @@ The code is fairly basic, but special care was taken to protect the image data t
 - No jpeg files in the loop at the moment. Use png instead.
 
 **Install**
-- No additional dependencies. Just copy the ComfyUI-Loop folder into Custom Nodes
+- No additional dependencies. Copy the ComfyUI-Loop folder into Custom Nodes and that's it.
 
 **FUTURE PLANS**
 
