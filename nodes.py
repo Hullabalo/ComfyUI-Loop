@@ -16,7 +16,7 @@ class LoadImageSimple:
     @classmethod
     def INPUT_TYPES(cls):
         return {"required": {
-                    "image_path": ("STRING",{"default": "/path/to/image.ext", "defaultInput": True, "tooltip": "Full path (including name.ext) of image file."}),
+                    "image_path": ("STRING",{"default": "/path/to/image.png", "tooltip": "Full path (including name.ext) of image file."}),
                     }
                 }
 
