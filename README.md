@@ -3,7 +3,7 @@ A pair of nodes to create a simple loop in your workflows. The operating princip
 
 ![alt text](https://github.com/Hullabalo/ComfyUI-Loop/blob/main/snappy_snap.png?raw=true)
 
-The code is fairly basic, but special care was taken to protect the image data to prevent degradation after multiple iterations. Visually, there is no loss in quality after 150 iterations. Theoretically, the same result should hold even after a thousand successive saves.
+The code is fairly basic, but special care was taken to protect the image data to prevent degradation. Visually, there is no loss in quality after 150 iterations. Theoretically, the same result should hold even after a thousand successive saves.
 
 **Limitations**
 
