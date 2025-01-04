@@ -12,6 +12,7 @@ The code is fairly basic, but special care was taken to protect the image data t
 - No preview available in the 'Load Image' node (theoretically, you know what you’ve loaded, right? :) )
 - No preview in the 'Save Image' node if the image is located outside the output folder.
 - Huge file size, because of uncompressed file and quality
+- No jpeg files in the loop at the moment. Use png instead.
 
 **Install**
 - No additional dependencies. Just copy the ComfyUI-Loop folder into Custom Nodes
