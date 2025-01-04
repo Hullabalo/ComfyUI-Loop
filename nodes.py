@@ -95,53 +95,56 @@ class SaveImageSimple:
         filename = os.path.basename(image_path)
         path = os.path.dirname(image_path)
 
-        # Convert to numpy array and keep as float32
+        # Convert to numpy array as float32
         i = (255. * image.cpu().numpy()).astype(np.float32)
 
-        # Handle image shape (assume (B, C, H, W))
+        # Handle image shape (1, H, W, C)
         # print(f"Image {filename} shape: {i.shape}") # debug
-        if len(i.shape) == 4 and i.shape[0] == 1:  # (1, H, W, C)
+        if len(i.shape) == 4 and i.shape[0] == 1:
             i = i[0]  # delete batch dimension
 
         # Convert to uint8
         img = Image.fromarray(np.rint(i).clip(0, 255).astype(np.uint8)) # using np.rint for lossless output
 
-        # Add mask as alpha channel if provided
-        if mask is not None:
-            m = (255. * mask.cpu().numpy()).astype(np.uint8)
-            if len(m.shape) == 4:
-                m = m[0]
-            m = np.squeeze(m)
-            m = 255 - m  # Invert if necessary
-            m = np.rint(m).clip(0, 255).astype(np.uint8) # m = np.clip(m, 0, 255).astype(np.uint8)
-
-            # Ensure mask size matches image size
-            if m.shape[:2] != (img.height, img.width):
-                print(f"Error : Mask size {m.shape[:2]} doesn't match image size {(img.height, img.width)}.")
-
-            # force mask resize
-            # if m.shape[:2] != (img.height, img.width):
-                # m = Image.fromarray(m)
-                # m = m.resize((img.width, img.height), resample=Image.BILINEAR)
-                # m = np.array(m)
-            else:
-                img = img.convert("RGBA")
-                alpha = Image.fromarray(m)
-                r, g, b = img.split()[:3]
-                img = Image.merge("RGBA", (r, g, b, alpha))
-
-        # Save with minimal compression
-        metadata = None
-        if not args.disable_metadata:
-            metadata = PngInfo()
-            if prompt is not None:
-                metadata.add_text("prompt", json.dumps(prompt))
-            if extra_pnginfo is not None:
-                for x in extra_pnginfo:
-                    metadata.add_text(x, json.dumps(extra_pnginfo[x]))
-
         # save to specified path, eventually overwriting source image
-        img.save(image_path, pnginfo=metadata, compress_level=0)
+        if image_path.lower().endswith('.jpg') or image_path.lower().endswith('.jpeg'):
+            img.save(image_path, quality=100)
+        else:
+            # Add mask as alpha channel if provided
+            if mask is not None:
+                m = (255. * mask.cpu().numpy()).astype(np.uint8)
+                if len(m.shape) == 4:
+                    m = m[0]
+                m = np.squeeze(m)
+                m = 255 - m
+                m = np.rint(m).clip(0, 255).astype(np.uint8) # m = np.clip(m, 0, 255).astype(np.uint8)
+
+                # Ensure mask size matches image size
+                if m.shape[:2] != (img.height, img.width):
+                    print(f"Error : Mask size {m.shape[:2]} doesn't match image size {(img.height, img.width)}.")
+
+                # force mask resize
+                # if m.shape[:2] != (img.height, img.width):
+                    # m = Image.fromarray(m)
+                    # m = m.resize((img.width, img.height), resample=Image.BILINEAR)
+                    # m = np.array(m)
+                else:
+                    img = img.convert("RGBA")
+                    alpha = Image.fromarray(m)
+                    r, g, b = img.split()[:3]
+                    img = Image.merge("RGBA", (r, g, b, alpha))
+
+            metadata = None
+            if not args.disable_metadata:
+                metadata = PngInfo()
+                if prompt is not None:
+                    metadata.add_text("prompt", json.dumps(prompt))
+                if extra_pnginfo is not None:
+                    for x in extra_pnginfo:
+                        metadata.add_text(x, json.dumps(extra_pnginfo[x]))
+
+
+            img.save(image_path, pnginfo=metadata, compress_level=0)
 
         # optionally keep a copy of new file with an unique name
         if save_steps == True:
