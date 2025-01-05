@@ -27,5 +27,5 @@ No additional dependencies are required. Search for 'Loop' in the ComfyUI Custom
 
 This is an alpha version created in one evening. I plan to revisit the code later (I’m currently working on something bigger and smarter), but it works well for basic use. If you encounter issues or have suggestions, don’t hesitate to ask on the repo ! :)
 
-If you enjoy this project and want to help its development, consider [buying me a coffee](https://buymeacoffee.com/hullabaloo/comfyui-image-loop) your support makes a difference! ♥️
+If you enjoy this project and want to help its development, consider [buying me a coffee](https://buymeacoffee.com/hullabaloo) your support makes a difference! ♥️
 
