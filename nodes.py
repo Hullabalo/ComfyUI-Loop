@@ -11,7 +11,7 @@ from comfy.cli_args import args
 
 # a simple image loop for your workflows. MIT License
 # https://github.com/Hullabalo/ComfyUI-Loop/
-        
+
 class LoadImageSimple:
     @classmethod
     def INPUT_TYPES(cls):
@@ -162,12 +162,115 @@ class SaveImageSimple:
 
         return {"ui": {"images": result}}
 
+class ImageCutLoop:
+    @classmethod
+    def INPUT_TYPES(cls):
+        return {
+            "required": {
+                "image": ("IMAGE",),
+                "x": ("INT", {"default": 0, "min": 0, "max": 16384, "step": 8}),
+                "y": ("INT", {"default": 0, "min": 0, "max": 16384, "step": 8}),
+                "width": ("INT", {"default": 512, "min": 8, "max": 4096, "step": 8}),
+                "height": ("INT", {"default": 512, "min": 8, "max": 4096, "step": 8}),
+            },
+        }
+
+    RETURN_TYPES = ("IMAGE", "IMAGE", "INT", "INT",)
+    RETURN_NAMES = ("source", "cutting","x","y",)
+    FUNCTION = "cut"
+    CATEGORY = "LOOP"
+    DESCRIPTION = "Cut a part of an input image."
+
+    def cut(self, image, x, y, width, height):
+        try:
+            _, img_height, img_width, _ = image.shape
+
+            # validate crop parameters
+            x = min(max(0, x), img_width - 1)
+            y = min(max(0, y), img_height - 1)
+            width = min(width, img_width - x)
+            height = min(height, img_height - y)
+
+            # crop image
+            cut = image[:, y:y+height, x:x+width, :]
+
+            return (image, cut, x, y)
+
+        except Exception as e:
+            print(f"Cut error: {str(e)}")
+            raise e
+
+class ImagePasteLoop:
+    @classmethod
+    def INPUT_TYPES(cls):
+        return {
+            "required": {
+                "source": ("IMAGE",),
+                "cutting": ("IMAGE",),
+                "mask": ("MASK",),
+                "x": ("INT", {"default": 0, "min": 0, "max": 16384, "step": 8, "defaultInput": True}),
+                "y": ("INT", {"default": 0, "min": 0, "max": 16384, "step": 8, "defaultInput": True}),
+            },
+        }
+
+    RETURN_TYPES = ("IMAGE",)
+    FUNCTION = "paste"
+    CATEGORY = "LOOP"
+    DESCRIPTION = "Replace a cutting in the original image."
+
+    def paste(self, source, cutting, mask, x, y):
+        try:
+            _, orig_height, orig_width, _ = source.shape
+            _, crop_height, crop_width, _ = cutting.shape
+
+            # create a copy of original image
+            paste_image = source.clone()
+
+            # check x, y parameters to assure they are bounded into the limits
+            x = min(max(0, x), orig_width - 1)
+            y = min(max(0, y), orig_height - 1)
+
+            # adjust dimensions if crop goes out of the borders
+            paste_width = min(crop_width, orig_width - x)
+            paste_height = min(crop_height, orig_height - y)
+
+            # if mask is None or empty
+            if mask is None or mask.max() == 0:
+                paste_image[:, y:y+paste_height, x:x+paste_width, :] = cutting[:, :paste_height, :paste_width, :]
+            else:
+                _, mask_height, mask_width = mask.shape  # (batch, H, W)
+                if crop_height != mask_height or crop_width != mask_width:
+                    raise ValueError("Mask and cropped image must have the same dimensions.")
+
+                # adjust mask and cropped image if needed
+                cutting = cutting[:, :paste_height, :paste_width, :]
+                mask = mask[:, :paste_height, :paste_width]
+                mask = mask.unsqueeze(-1)  # add dimension if needed (H, W) -> (H, W, 1)
+
+                # normalize mask (between 0 and 1 values)
+                mask = mask.float() / mask.max()
+
+                # apply mask
+                paste_image[:, y:y+paste_height, x:x+paste_width, :] = (
+                    cutting * mask + paste_image[:, y:y+paste_height, x:x+paste_width, :] * (1 - mask)
+                )
+
+            return (paste_image,)
+
+        except Exception as e:
+            print(f"Error while pasting : {str(e)}")
+            raise e
+
 NODE_CLASS_MAPPINGS = {
     "LoadImageSimple": LoadImageSimple,
-    "SaveImageSimple": SaveImageSimple
+    "SaveImageSimple": SaveImageSimple,
+    "ImageCutLoop": ImageCutLoop,
+    "ImagePasteLoop": ImagePasteLoop
 }
 
 NODE_DISPLAY_NAME_MAPPINGS = {
     "LoadImageSimple": "Load Image (LOOP)",
-    "SaveImageSimple": "Save Image (LOOP)"
+    "SaveImageSimple": "Save Image (LOOP)",
+    "ImageCutLoop": "Cut Image (LOOP)",
+    "ImagePasteLoop": "Paste Image (LOOP)"
 }
