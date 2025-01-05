@@ -19,8 +19,8 @@ The code is fairly basic, but special care was taken to protect the image data t
 - Huge file size, because of uncompressed file and quality
 
 **Install**
-- No additional dependencies. Copy the ComfyUI-Loop folder into Custom Nodes and that's it.
+- No additional dependencies.  Search 'Loop' in Comfy custom nodes Manager, or copy the ComfyUI-Loop folder into Custom Nodes and that's it.
 
 **Future plans**
 
-This is an alpha version put together in one evening. I will revisit the code later, but for now, it works as expected, for my usage at least. But if you need something more, feel free to ask :)
+This is an alpha version put together in one evening. I will revisit the code later, for now, it works as expected at least for my usage. But if you need something more, feel free to ask :)
