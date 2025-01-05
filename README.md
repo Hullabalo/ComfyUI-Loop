@@ -27,5 +27,5 @@ The code is fairly basic, but special care was taken to protect the image data t
 
 This is an alpha version put together in one evening. I will revisit the code later, for now, it works as expected at least for my usage. But if you need something more, feel free to ask :)
 
-If you enjoy this project and want to help its development, consider [buying me a coffee](#https://buymeacoffee.com/hullabaloo/comfyui-image-loop) your support makes a difference! ♥️
+If you enjoy this project and want to help its development, consider [buying me a coffee](https://buymeacoffee.com/hullabaloo/comfyui-image-loop) your support makes a difference! ♥️
 
