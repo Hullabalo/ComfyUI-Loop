@@ -21,7 +21,7 @@ The current code is relatively basic, but special care has been taken to preserv
 - Large file sizes due to uncompressed output for maximum quality preservation.
 
 **Install**
-- No additional dependencies are required. Search for 'Loop' in the ComfyUI Custom Nodes Manager or copy the ComfyUI-Loop folder into the Custom Nodes directory — and you're ready to go!
+No additional dependencies are required. Search for 'Loop' in the ComfyUI Custom Nodes Manager or copy the ComfyUI-Loop folder into the Custom Nodes directory — and you're ready to go!
 
 **Future plans**
 
