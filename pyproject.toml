@@ -1,7 +1,7 @@
 [project]
 name = "comfyui-loop"
-description = "A pair of nodes (Load Image and Save Image) to create a simple loop in your ComfyUI inpainting workflow, without the need of loading your last saved image"
-version = "0.1.1"
+description = "A pair of nodes (Load Image and Save Image) to create a simple loop in your ComfyUI inpainting workflow, without the need of loading your last saved image. And two others nodes to do a cut in your large image before replacing the cutting into the source."
+version = "0.1.2"
 license = {file = "LICENSE"}
 dependencies = []
 
