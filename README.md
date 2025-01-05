@@ -3,7 +3,7 @@ A pair of nodes to create a simple loop in your workflows. The operating princip
 
 ![alt text](https://github.com/Hullabalo/ComfyUI-Loop/blob/main/inpainting_loop.png?raw=true)
 
-The code is fairly basic, but special care was taken to protect the image data to prevent degradation. Visually, there is no loss in quality after 150 iterations. Theoretically, the same result should hold even after a thousand successive saves.
+The code is fairly basic, but special care was taken to protect the image data to prevent degradation. Visually, there is no loss in quality after 150 iterations. Theoretically, the same result should hold even after a thousand successive loops/saves.
 
 **Usage**
 - feed image path with /path/to/image.ext (png, jpg, gif, tiff... :)) in 'Load Image (Loop)' Node
@@ -13,7 +13,7 @@ The code is fairly basic, but special care was taken to protect the image data t
 
 **Limitations**
 - No support for image lists or batch as input for 'Save Image (LOOP)'. If a list is provided, only the first image will be saved and displayed n times
-- If a mask is present, it must match the image format to be saved in the alpha channel of the output image. Otherwise, your image will be returned in RGB mode instead of RGBA.
+- If a mask is present, it must match the image format to be saved in the alpha channel of the output image. Otherwise, your image will be saved in RGB mode instead of RGBA.
 - No preview available in the 'Load Image' node (Incidentally, you know what you’ve loaded, right? :) )
 - No preview in the 'Save Image' node if the image is located outside the output folder.
 - Huge file size, because of uncompressed file and quality
