@@ -22,6 +22,10 @@ The current code is relatively basic, but special care has been taken to preserv
 - No preview in 'Save Image' if the image is located outside the output folder.
 - Large file sizes due to uncompressed output for maximum quality preservation.
 
+**Troubleshoot**
+
+Potential incompatibility with KJNodes Resize Mask. If you get an error 'Cannot handle this data type: (1, 1, 1), |u1', do a Convert Mask to Image > KJNodes Resize Image > Convert Image to Mask as a workaround.
+
 **Install**
 
 No additional dependencies are required. Search for 'Loop' in the ComfyUI Custom Nodes Manager or copy the ComfyUI-Loop folder into the Custom Nodes directory — and you're ready to go!
