@@ -3,7 +3,7 @@ ComfyUI-Loop is essentially a pair of nodes designed to create a simple image lo
 
 ![alt text](https://github.com/Hullabalo/ComfyUI-Loop/blob/main/inpainting_loop.png?raw=true)
 
-The current code is relatively basic, but special care has been taken to preserve image data quality and prevent degradation. Visually, there is no noticeable loss in quality even after 150 iterations, and ~~theoretically, this should~~* remain true after a thousand consecutive loops and saves.
+The current code is relatively basic, but special care has been taken to preserve image data quality and prevent degradation. Visually, there is no noticeable loss in quality even after 150 iterations, and ~~theoretically, this should~~(a) remain true after a thousand consecutive loops and saves.
 
 01/05/25 update : The day after releasing the initial version on GitHub, I added two more nodes from my toolkit: Cut Image (LOOP) and Paste Image (LOOP). These nodes facilitate working with large images by cutting a specific part of an image, sending it to your inpainting workflow, KSampler, or other processes, and then pasting it back in place afterward. You can find an example workflow in the example_workflow folder.
 
@@ -33,5 +33,5 @@ This is an alpha version created in one evening. I plan to revisit the code late
 If you enjoy this project and want to help its development, consider [buying me a coffee](https://buymeacoffee.com/hullabaloo) . your support makes a difference! ♥️
 
 ---
-* Finally tested on 1000 loops, so you don’t have to wear out your SSD for proofing. A diff returns a perfectly black image in GIMP.
+(a) Finally tested on 1000 loops, so you don’t have to wear out your SSD for proofing. A diff returns a perfectly black image in GIMP.
 
