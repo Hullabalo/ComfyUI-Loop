@@ -10,7 +10,7 @@ The current code is relatively basic, but special care has been taken to preserv
 ![alt text](https://github.com/Hullabalo/ComfyUI-Loop/blob/main/cut_and_paste_example(no_workflow).png?raw=true)
 
 **Usage**
-- Set the image path ('/path/to/your/file.png') in the Load Image (LOOP) node using (supports PNG, JPG, GIF, etc.). **Always** work on a copy of your source file (if you don't want it to be overwritten).
+- in  Load Image (LOOP) node browse for an image from **output folder** (or feed the field with its name e.g. 'image.png'). **Always** work on a copy of your source file (if you don't want it to be overwritten).
 - Connect the path output from Load Image (LOOP) to the image_path input of Save Image (LOOP).
 - The mask input in Save Image (LOOP) is optional.
 - Enable save steps if you want to keep a copy of the file at each iteration.
@@ -18,13 +18,12 @@ The current code is relatively basic, but special care has been taken to preserv
 **Limitations**
 - No support for image lists or batch inputs in 'Save Image (LOOP)'. If a list is provided, only the first image will be saved and displayed repeatedly.
 - Mask format compatibility: If a mask is used, it must match the image format to be saved in the alpha channel. Otherwise, the output will be saved in RGB mode instead of RGBA.
-- No preview is available in the 'Load Image (LOOP)' node (But you know what you’ve loaded, right? :) ). This design choice improves speed and prevents ComfyUI from hanging when loading large 64Mpixels images :).
-- No preview in 'Save Image' if the image is located outside the output folder.
+- No preview in the 'Load Image (LOOP)' node (But you know what you’ve loaded, right? :) ). This design choice prevents ComfyUI from hanging when loading large 64Mpixels images :).
 - Large file sizes due to uncompressed output for maximum quality preservation.
 
 **Troubleshoot**
 
-Potential incompatibility with KJNodes Resize Mask. If you get an error 'Cannot handle this data type: (1, 1, 1), |u1', do a Convert Mask to Image > KJNodes Resize Image > Convert Image to Mask as a workaround.
+With KJNodes Resize Mask. If you get an error 'Cannot handle this data type: (1, 1, 1), |u1', do a Convert Mask to Image > KJNodes Resize Image > Convert Image to Mask as a workaround.
 
 **Install**
 
@@ -32,7 +31,7 @@ No additional dependencies are required. Search for 'Loop' in the ComfyUI Custom
 
 **Future plans**
 
-This is an alpha version created in one evening. I plan to revisit the code later (I’m currently working on something bigger and smarter), but it works well for basic use. If you encounter issues or have suggestions, don’t hesitate to ask on the repo ! :)
+This is an alpha version created in one evening. I plan to revisit the code later but it works well for basic use (I’m currently working on something else, smarter... but don't judge a fish by its ability to climb a tree, I will just do my best :D). If you encounter issues or have suggestions, ask on the repo ! :)
 
 If you enjoy this project and want to help its development, consider [buying me a coffee](https://buymeacoffee.com/hullabaloo) . your support makes a difference! ♥️
 
