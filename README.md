@@ -1,7 +1,7 @@
 # ComfyUI-Loop
 ComfyUI-Loop is essentially a pair of nodes designed to create a simple image loop within your workflows. The operating principle is straightforward: the Save Image (LOOP) node saves an image by overwriting the file specified in the 'image path' field, making it automatically available for the next iteration. This functionality is primarily intended for inpainting workflows.
 
-![alt text](https://github.com/Hullabalo/ComfyUI-Loop/blob/main/inpainting_loop.png?raw=true)
+![alt text](https://github.com/Hullabalo/ComfyUI-Loop/blob/main/inpainting_loop(no_workflow).png?raw=true)
 
 The current code is relatively basic, but special care has been taken to preserve image data quality and prevent degradation. Visually, there is no noticeable loss in quality even after 150 iterations, and ~~theoretically, this should~~(a) remain true after a thousand consecutive loops and saves.
 
@@ -35,7 +35,7 @@ With KJNodes Resize Mask. If you get an error 'Cannot handle this data type: (1,
 
 This is an alpha version created in one evening. I plan to revisit the code later but it works well for basic use (I’m currently working on something else, smarter... but don't judge a fish by its ability to climb a tree, I will just do my best :D). If you encounter issues or have suggestions, ask on the repo ! :)
 
-If you enjoy this project and want to help its development, consider [buying me a coffee](https://buymeacoffee.com/hullabaloo) . your support makes a difference! ♥️
+If you enjoy this project and want to help its development, leave a star or consider [buying me a coffee](https://buymeacoffee.com/hullabaloo) . your support makes a difference! ♥️
 
 ---
 (a) Finally tested on 1000 loops, so you don’t have to wear out your SSD for proofing. A diff returns a perfectly black image in GIMP.
