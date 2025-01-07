@@ -3,34 +3,38 @@ import os
 import shutil
 import json
 import node_helpers
+import folder_paths
 import numpy as np
 import torch
 from PIL import Image, ImageOps
 from PIL.PngImagePlugin import PngInfo
 from comfy.cli_args import args
 
-# a simple image loop for your workflows. MIT License
+# a simple image loop for your workflow. MIT License
 # https://github.com/Hullabalo/ComfyUI-Loop/
 
 class LoadImageSimple:
+    def __init__(self):
+        self.output_dir = folder_paths.get_output_directory()
+
     @classmethod
     def INPUT_TYPES(cls):
         return {"required": {
-                    "image_path": ("STRING",{"default": "/path/to/image.png", "tooltip": "Full path (including name.ext) of image file."}),
+                    "image": ("STRING",{"default": "image.png", "tooltip": "Name of an image file located in output folder."}),
                     }
                 }
-
 
     RETURN_TYPES = ("IMAGE", "MASK", "INT", "INT", "STRING")
     RETURN_NAMES = ("image", "mask", "height", "width", "path")
     CATEGORY = "LOOP"
-    DESCRIPTION = "Load an image from specified full path."
+    DESCRIPTION = "Load an image from output folder."
     FUNCTION = "load_image"
     
 
-    def load_image(self, image_path):
+    def load_image(self, image):
 
-        img = node_helpers.pillow(Image.open, image_path)
+        image = os.path.join(self.output_dir, image)
+        img = node_helpers.pillow(Image.open, image)
 
         output_images = []
         output_masks = []
@@ -59,20 +63,23 @@ class LoadImageSimple:
         output_image = output_images[0]
         output_mask = output_masks[0]
 
-        return (output_image, output_mask, h, w, image_path)
+        return (output_image, output_mask, h, w, image)
     
     @classmethod
-    def IS_CHANGED(s, image_path):
+    def IS_CHANGED(s, image):
         return float("NaN")
 
 class SaveImageSimple:
+    def __init__(self):
+        self.output_dir = folder_paths.get_output_directory()
+
     @classmethod
     def INPUT_TYPES(cls):
         return {
             "required": {
                 "image": ("IMAGE", {"tooltip": "Image datas."}),
-                "image_path": ("STRING", {"default": "/path/to/image.ext", "defaultInput": True, "tooltip": "Full path (including name.ext) of saved image."}),
-                "save_steps": ("BOOLEAN", {"default": False, "tooltip": "Save a copy next to the output image with a timestamp as suffix."}),
+                "image_path": ("STRING", {"default": "/path/to/image.ext", "defaultInput": True, "tooltip": "Full path of the saved image."}),
+                "save_steps": ("BOOLEAN", {"default": False, "tooltip": "Save a copy next to the saved image with a timestamp as suffix."}),
             },
             "optional": {
                 "mask": ("MASK", {"tooltip": "Optional mask to use as alpha channel."}),
@@ -85,7 +92,6 @@ class SaveImageSimple:
 
     RETURN_TYPES = ()
     FUNCTION = "save_images"
-
     OUTPUT_NODE = True
     CATEGORY = "LOOP"
     DESCRIPTION = "Saves the input image, optionally add a mask as alpha channel."
@@ -93,7 +99,6 @@ class SaveImageSimple:
     def save_images(self, image, image_path, save_steps, prompt=None, extra_pnginfo=None, mask=None):
         result = list()
         filename = os.path.basename(image_path)
-        path = os.path.dirname(image_path)
 
         # Convert to numpy array as float32
         i = (255. * image.cpu().numpy()).astype(np.float32)
@@ -103,10 +108,9 @@ class SaveImageSimple:
         if len(i.shape) == 4 and i.shape[0] == 1:
             i = i[0]  # delete batch dimension
 
-        # Convert to uint8
-        img = Image.fromarray(np.rint(i).clip(0, 255).astype(np.uint8)) # using np.rint for lossless output
+        img = Image.fromarray(np.rint(i).clip(0, 255).astype(np.uint8)) # Convert to uint8 using np.rint for lossless output
 
-        # save to specified path, eventually overwriting source image
+        # save to specified path, overwriting source image
         if image_path.lower().endswith('.jpg') or image_path.lower().endswith('.jpeg'):
             img.save(image_path, quality=100)
         else:
@@ -143,20 +147,19 @@ class SaveImageSimple:
                     for x in extra_pnginfo:
                         metadata.add_text(x, json.dumps(extra_pnginfo[x]))
 
-
             img.save(image_path, pnginfo=metadata, compress_level=0)
 
-        # optionally keep a copy of new file with an unique name
+        # keep a copy of image with increment
         if save_steps == True:
-            timestamp = f"{time.time():.6f}".replace('.', '')  # Format: seconds.microseconds
+            timestamp = f"{time.time():.6f}".replace(".", "")
             base, ext = os.path.splitext(filename)
             img_copy_name = f"{base}_{timestamp}{ext}"
-            img_copy_path = os.path.join(path, img_copy_name)
+            img_copy_path = os.path.join(self.output_dir, img_copy_name)
             shutil.copy(image_path, img_copy_path)
 
         result.append({
             "filename": filename,
-            "subfolder": path,
+            "subfolder": "",
             "type": "output"
         })
 
