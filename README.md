@@ -5,8 +5,7 @@ ComfyUI-Loop is essentially a pair of nodes designed to create a simple image lo
 
 The current code is relatively basic, but special care has been taken to preserve image data quality and prevent degradation. Visually, there is no noticeable loss in quality even after 150 iterations, and ~~theoretically, this should~~(a) remain true after a thousand consecutive loops and saves.
 
-01/07/25 : tired of writing paths ? I added a browser to the Image Loader (now use 'output' folder only). Use fix node to recreate the node in your graph.
-
+01/07/25: Tired of writing paths? I added a browser button to the Image Loader (Be aware that for now it only load picture hosted in the 'output' folder). recreate the node in your graph if you run into problems.
 01/05/25 update : The day after releasing the initial version on GitHub, I added two more nodes from my toolkit: Cut Image (LOOP) and Paste Image (LOOP). These nodes facilitate working with large images by cutting a specific part of an image, sending it to your inpainting workflow, KSampler, or other processes, and then pasting it back in place afterward. You can find an example workflow in the example_workflow folder.
 
 ![alt text](https://github.com/Hullabalo/ComfyUI-Loop/blob/main/cut_and_paste_example(no_workflow).png?raw=true)
