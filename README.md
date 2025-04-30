@@ -1,3 +1,5 @@
+**HOT NEWS 5/1/25 : Something went wrong while updating on the Comfy Registry. Please get the latest version (0.1.15) by downloading the archive under Releases or by cloning the repository.**
+
 # ComfyUI-Loop
 ComfyUI-Loop is essentially a pair of nodes designed to create a simple image loop within your workflows. The operating principle is straightforward: the Save Image (LOOP) node saves an image by overwriting the file specified in the 'image path' field, making it automatically available for the next iteration. This functionality is primarily intended for inpainting workflows.
 
