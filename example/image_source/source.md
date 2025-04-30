@@ -1,1 +1,0 @@
-a demo image
