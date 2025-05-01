@@ -1,4 +1,4 @@
-**HOT NEWS 5/1/25 : Something went wrong while updating v0.1.15 on the Comfy Registry, problem is RESOLVED but avoid 0.1.15 and get the latest version 0.1.16 instead, using ComfyUI Manager.**
+**HOT NEWS 5/1/25 : Something went wrong while updating v0.1.5 on the Comfy Registry, problem is RESOLVED but avoid 0.1.5 and get the latest version 0.1.6 instead, using ComfyUI Manager.**
 
 # ComfyUI-Loop
 ComfyUI-Loop is essentially a pair of nodes designed to create a simple image loop within your workflows. The operating principle is straightforward: the Save Image (LOOP) node saves an image by overwriting the file specified in the 'image path' field, making it automatically available for the next iteration. This functionality is primarily intended for inpainting workflows.
@@ -14,7 +14,7 @@ https://github.com/user-attachments/assets/151a7645-656f-41b8-b20a-1060af15c2a1
 
 
 04/30/25:
-v0.1.15 update
+v0.1.6 update
 - added the node LoopImageSimple in a aim to replace the LoadImageSimple. A different flavor, that's something.
 - option given in LoopImageSimple to choose the image name and folder, and/or use a classic image input and mask
 - some minors modifications into Save Image. Removed compatibility with jpg/jpeg ...
@@ -22,7 +22,7 @@ v0.1.15 update
 - now, 'Paste Image' hosts a optional cutting_mask input
 - small upgrade to 'Cut Image' node, added mask input and cutting_mask output
 
-01/07/25: v0.1.14 Tired of writing paths? I added a browser button to the Image Loader (Be aware that for now it only load picture hosted in the 'output' folder). recreate the node in your graph if you run into problems.
+01/07/25: v0.1.4 Tired of writing paths? I added a browser button to the Image Loader (Be aware that for now it only load picture hosted in the 'output' folder). recreate the node in your graph if you run into problems.
 
 01/05/25 update : The day after releasing the initial version on GitHub, I added two more nodes from my toolkit: Cut Image (LOOP) and Paste Image (LOOP). These nodes facilitate working with large images by cutting a specific part of an image, sending it to your inpainting workflow, KSampler, or other processes, and then pasting it back in place afterward. You can find an example workflow in the example_workflow folder.
 
