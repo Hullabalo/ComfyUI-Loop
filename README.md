@@ -18,7 +18,7 @@ v0.1.6 update
 - added the node LoopImageSimple in a aim to replace the LoadImageSimple. A different flavor, that's something.
 - option given in LoopImageSimple to choose the image name and folder, and/or use a classic image input and mask
 - some minors modifications into Save Image. Removed compatibility with jpg/jpeg ...
-- added the Crop Image node, woohoo javascript overdose : it works ok with ComfyUI v0.3.1 and ComfyUI_Frontend v1.6.15 but **NOT with the last version of ComfyUI**. I will see to resolve this later.
+- added the Crop Image node, woohoo javascript overdose : it works ok with ComfyUI v0.3.1 and ComfyUI_Frontend v1.6.15 but **NOT with the last version of ComfyUI**. I will resolve this in a future version.
 - now, 'Paste Image' hosts a optional cutting_mask input
 - small upgrade to 'Cut Image' node, added mask input and cutting_mask output
 
