@@ -7,6 +7,12 @@ ComfyUI-Loop is essentially a pair of nodes designed to create a simple image lo
 
 The current code is relatively basic, but special care has been taken to preserve image data quality and prevent degradation. Visually, there is no noticeable loss in quality even after 150 iterations, and ~~theoretically, this should~~(a) remain true after a thousand consecutive loops and saves.
 
+
+
+https://github.com/user-attachments/assets/151a7645-656f-41b8-b20a-1060af15c2a1
+
+
+
 04/30/25:
 v0.1.15 update
 - added the node LoopImageSimple in a aim to replace the LoadImageSimple. A different flavor, that's something.
