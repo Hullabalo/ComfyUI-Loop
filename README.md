@@ -1,8 +1,8 @@
-Custom ComfyUI nodes for interactive image manipulation and flexible file looping. Provides four specialized nodes for cropping, pasting, looping, and saving various file types with preview capabilities.
+ComfyUI nodes for interactive image manipulation and flexible file looping. Provides four specialized nodes for cropping, pasting, looping and saving IMAGE, LATENT, AUDIO and STRING file types with (for images and masks) preview capabilities.
 
 ComfyUI-Loop is essentially a pair of nodes designed to create a simple file loop within your workflows. The operating principle is straightforward: the Save Any node saves an image by overwriting the file specified in the 'path' field, making it automatically available for the next iteration. This functionality is primarily intended for inpainting workflows.
 
-# 0.2 version - last changes 10/23/2025 :
+## 0.2 version - last changes 10/23/2025 :
 Better integration with last ComfyUI version. Better code structure.
 - Now there's only four nodes for two main usages, looping files and visual cutting-pasting: 
   LoopAny -> SaveAny
@@ -16,7 +16,8 @@ TL;DR : Revisited code from A to Z. Crop your images and masks, loop your files,
 [loop_and_paste.webm](https://github.com/user-attachments/assets/83c2a7b8-c854-4681-9773-8110bdd753aa)
 
 ## ♾️ Image Crop
-Interactive image cropping with live preview. Supports some keyboard controls (PageUp/Down to resize).
+Interactive image cropping with live preview. Define a tile size for your crop and drag/drop on an image preview. Also supports direct widget input and some keyboard controls (PageUp/Down to resize).
+The preview represents a downscaled version of the current image input, while the preview mask is a downscaled binary version of the input mask. If the inputs haven’t changed significantly from the previously loaded files, the previews will remain unchanged (improving the execution speed of your workflow).
 
 **Inputs:**
 | Parameter | Type | Default | Range | Description |
@@ -58,7 +59,7 @@ Pastes cropped images onto source images with optional masking/blending.
 [loop_and_save_any.webm](https://github.com/user-attachments/assets/d6e1c707-8403-419d-91ff-b470b1599d01)
 
 ## ♾️ Loop Any
-Loops various file types (images, masks, latents, audio, text) from ComfyUI's output directory or one of its subfolders
+Loops various file types (images, masks, latents, audio, text) from ComfyUI's output directory or one of its subfolders  basically by loading and overwriting the file specified in the 'path' field, making it automatically available for the next iteration.
 
 **Inputs:**
 | Parameter | Type | Default | Description |
