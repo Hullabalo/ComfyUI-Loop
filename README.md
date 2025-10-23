@@ -13,6 +13,8 @@ Better integration with last ComfyUI version. Better code structure.
 
 TL;DR : Revisited code from A to Z. Crop your images and masks, loop your files, the fun way.
 
+[loop_and_paste.webm](https://github.com/user-attachments/assets/83c2a7b8-c854-4681-9773-8110bdd753aa)
+
 ## ♾️ Image Crop (`ImageCropLoop`)
 **Functionality:** Interactive image cropping with live preview. Supports some keyboard controls (PageUp/Down to resize).
 
@@ -53,6 +55,7 @@ TL;DR : Revisited code from A to Z. Crop your images and masks, loop your files,
 - `image`: final image
 
 ---
+[loop_and_save_any.webm](https://github.com/user-attachments/assets/d6e1c707-8403-419d-91ff-b470b1599d01)
 
 ## ♾️ Loop Any (`LoopAny`)
 **Functionality:** Loops various file types (images, masks, latents, audio, text) from ComfyUI's output directory or one of its subfolders
