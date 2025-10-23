@@ -115,12 +115,12 @@ Have a look at the example workflow (json or .png), for up to date informations 
 ## Future plans
 - adding some kind of mask edit capabilities in the 'Image Crop' node
 - more file format outputs
-- Better code, without changing the developer ha ha!
+- Better code, without changing the developer ha ha prey for a miracle!
 
 I plan to revisit the code later but it works well for basic use (don't judge a fish by its ability to climb a tree, I do my best :D). 
 If you encounter issues or have suggestions, ask on the repo ! :)
 
-If you enjoy this project and want to boost its development, just leave a star (I eat them) : your support makes a difference! ♥️
+If you like this project and want to fuel its growth, drop a star (I snack on them at night) — your support keeps me going! ♥️
 
 **MIT License. version 0.2**
 https://github.com/Hullabalo/ComfyUI-Loop/
