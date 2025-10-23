@@ -103,11 +103,8 @@ Saves various data types to 'path' directory with optional versioned backups and
 No additional dependencies are required. Search for 'Loop' in the ComfyUI Custom Nodes Manager or copy the ComfyUI-Loop folder into the Custom Nodes directory — and you're ready to go!
 
 ## Usage
-Have a look at the example workflow (json or .png), for up to date informations on usage and a working example.
-- in  Load Image (LOOP) node browse for an image from **output folder** (or feed the field with its name e.g. 'image.png'). **Always** work on a copy of your source file (if you don't want it to be overwritten).
-- Connect the path output from Load Image (LOOP) to the image_path input of Save Image (LOOP).
-- The mask input in Save Image (LOOP) is optional.
-- Enable save steps if you want to keep a copy of the file at each iteration.
+Have a look at the workflow (json or .png) in /example_workflow and the one-minute video, for up to date informations on usage and working example.
+**Always** work on a copy of your source file (if you don't want it to be overwritten).
 
 ## Limitations
 - No support for lists or batch inputs.
@@ -116,6 +113,7 @@ Have a look at the example workflow (json or .png), for up to date informations 
 ## Future plans
 - adding some kind of mask edit capabilities in the 'Image Crop' node
 - more file format outputs
+- your suggestions, as always welcome
 - Better code, without changing the developer ha ha prey for a miracle!
 
 I plan to revisit the code later but it works well for basic use (don't judge a fish by its ability to climb a tree, I do my best :D). 
@@ -127,7 +125,7 @@ If you like this project and want to fuel its growth, drop a star (I snack on th
 https://github.com/Hullabalo/ComfyUI-Loop/
 Thanks to rgthree, chrisgoringe, pythongosssss and many, many many others for their contributions, how-to's, code snippets etc.
 
-## Image Attribution
+**Image Attribution**
 Icons from `/icons` directory Icons are based on icon set from PAOMedia :
 https://www.iconfinder.com/paomedia/icon-sets
 and licensed under [Creative Commons Attribution 3.0 Unported] (https://creativecommons.org/licenses/by/3.0/deed.en).
