@@ -115,7 +115,7 @@ Have a look at the example workflow (json or .png), for up to date informations 
 ## Future plans
 - adding some kind of mask edit capabilities in the 'Image Crop' node
 - more file format outputs
-- Better code, without changing the developer ahah
+- Better code, without changing the developer ha ha!
 
 I plan to revisit the code later but it works well for basic use (don't judge a fish by its ability to climb a tree, I do my best :D). 
 If you encounter issues or have suggestions, ask on the repo ! :)
