@@ -19,22 +19,22 @@ TL;DR : Revisited code from A to Z. Crop your images and masks, loop your files,
 **Functionality:** Interactive image cropping with live preview. Supports some keyboard controls (PageUp/Down to resize).
 
 **Inputs:**
-| Parameter | Default | Range | Description |
-|-----------|---------|-------|-------------|
-| `image` | - | Source image to crop |
-| `x` | 0-32768 | X-origin of crop rectangle |
-| `y` | 0-32768 | Y-origin of crop rectangle |
-| `size` | 256-2048 | Crop size (increments of 8) |
-| `color` | ["black","grey","red","green","blue"] | unselected preview color |
-| `show_mask` | boolean | show binary mask preview |
-| `mask` | Optional mask |
+| Parameter | Type | Default | Range | Description |
+|-----------|------|---------|-------|-------------|
+| `image` | IMAGE | - | - | Source image to crop |
+| `x` | INT | 0 | 0-32768 | X-origin of crop rectangle |
+| `y` | INT | 0 | 0-32768 | Y-origin of crop rectangle |
+| `size` | INT | 512 | 256-2048 | Crop size (increments of 8) |
+| `color` | LIST | "black" | ["black","grey","red","green","blue"] | Preview rectangle color |
+| `show_mask` | boolean | True | - | show binary mask preview |
+| `mask` | MASK | - | - | Optional mask (alpha channel) |
 
 **Outputs:**
 - `source`: Original image
 - `cut`: Cropped image
-- `size`: Final crop size used
-- `x`: Final X-position used
-- `y`: Final Y-position used
+- `size`: crop size used
+- `x`: X-position used
+- `y`: Y-position used
 - `cut_mask`: Cropped mask
 
 ---
@@ -68,19 +68,19 @@ TL;DR : Revisited code from A to Z. Crop your images and masks, loop your files,
 | `filename` | STRING | "loop_file" | Base filename (no extension) |
 | `subfolder` | STRING | "" | Output subdirectory |
 | `loop_mask` | BOOL | False | Enable mask looping ( load mask from loop image alpha channel instead of mask input|
-| `mask` | MASK | - | Optional input mask |
+| `mask` | MASK | - | Optional input mask (conditional : image input)|
 
 **Outputs:**
 - `output`: Processed output data
 - `path`: Full file path
-- `width`: Output width (images)
-- `height`: Output height (images)
-- `mask`: optional mask to send to Save Any node, for saving as alpha channel
+- `width`: Output width (conditional : image/mask/latent input)
+- `height`: Output height (conditional : image/mask/latent input)
+- `mask`: optional mask to send to Save Any node, for saving as alpha channel (conditional : image input)
 
 ---
 
 ## ♾️ Save Any (`SaveAny`)
-**Functionality:** Saves various data types to output directory with optional versioned backups and optional preview.
+**Functionality:** Saves various data types to 'path' directory with optional versioned backups and optional preview.
 
 **Inputs:**
 | Parameter | Type | Default | Description |
@@ -90,7 +90,7 @@ TL;DR : Revisited code from A to Z. Crop your images and masks, loop your files,
 | `save_steps` | BOOL | False | Save timestamped copies |
 | `mask` | MASK | - | Optional mask (for images) |
 
-**SAaing Output Formats:**
+**Saving Formats:**
 - Images: `.png`
 - Masks: `.png`
 - Latents: `.latent`
@@ -120,13 +120,13 @@ Have a look at the example workflow (json or .png), for up to date informations 
 I plan to revisit the code later but it works well for basic use (don't judge a fish by its ability to climb a tree, I do my best :D). 
 If you encounter issues or have suggestions, ask on the repo ! :)
 
-If you enjoy this project and want to boost its development, just leave a star : your support makes a difference! ♥️
+If you enjoy this project and want to boost its development, just leave a star (I eat them) : your support makes a difference! ♥️
 
 **MIT License. version 0.2**
 https://github.com/Hullabalo/ComfyUI-Loop/
 Thanks to rgthree, chrisgoringe, pythongosssss and many, many many others for their contributions, how-to's, code snippets etc.
 
-## Icon Attribution
+## Image Attribution
 Icons from `/icons` directory Icons are based on icon set from PAOMedia :
 https://www.iconfinder.com/paomedia/icon-sets
 and licensed under [Creative Commons Attribution 3.0 Unported] (https://creativecommons.org/licenses/by/3.0/deed.en).
