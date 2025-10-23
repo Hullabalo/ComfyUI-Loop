@@ -16,7 +16,7 @@ TL;DR : Revisited code from A to Z. Crop your images and masks, loop your files,
 [loop_and_paste.webm](https://github.com/user-attachments/assets/83c2a7b8-c854-4681-9773-8110bdd753aa)
 
 ## ♾️ Image Crop
-**Functionality:** Interactive image cropping with live preview. Supports some keyboard controls (PageUp/Down to resize).
+Interactive image cropping with live preview. Supports some keyboard controls (PageUp/Down to resize).
 
 **Inputs:**
 | Parameter | Type | Default | Range | Description |
@@ -40,7 +40,7 @@ TL;DR : Revisited code from A to Z. Crop your images and masks, loop your files,
 ---
 
 ## ♾️ Paste Image
-**Functionality:** Pastes cropped images onto source images with optional masking/blending.
+Pastes cropped images onto source images with optional masking/blending.
 
 **Inputs:**
 | Parameter | Description |
@@ -58,7 +58,7 @@ TL;DR : Revisited code from A to Z. Crop your images and masks, loop your files,
 [loop_and_save_any.webm](https://github.com/user-attachments/assets/d6e1c707-8403-419d-91ff-b470b1599d01)
 
 ## ♾️ Loop Any
-**Functionality:** Loops various file types (images, masks, latents, audio, text) from ComfyUI's output directory or one of its subfolders
+Loops various file types (images, masks, latents, audio, text) from ComfyUI's output directory or one of its subfolders
 
 **Inputs:**
 | Parameter | Type | Default | Description |
@@ -80,7 +80,7 @@ TL;DR : Revisited code from A to Z. Crop your images and masks, loop your files,
 ---
 
 ## ♾️ Save Any
-**Functionality:** Saves various data types to 'path' directory with optional versioned backups and optional preview.
+Saves various data types to 'path' directory with optional versioned backups and optional preview.
 
 **Inputs:**
 | Parameter | Type | Default | Description |
