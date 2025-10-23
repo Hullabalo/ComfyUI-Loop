@@ -130,4 +130,5 @@ Thanks to rgthree, chrisgoringe, pythongosssss and many, many many others for th
 Icons from `/icons` directory Icons are based on icon set from PAOMedia :
 https://www.iconfinder.com/paomedia/icon-sets
 and licensed under [Creative Commons Attribution 3.0 Unported] (https://creativecommons.org/licenses/by/3.0/deed.en).
+
 All other images in video and examples are CC0 (wikimedia commons)
