@@ -98,21 +98,21 @@ TL;DR : Revisited code from A to Z. Crop your images and masks, loop your files,
 - Text: `.txt`
 ---
 
-**Install**
+## Install
 No additional dependencies are required. Search for 'Loop' in the ComfyUI Custom Nodes Manager or copy the ComfyUI-Loop folder into the Custom Nodes directory — and you're ready to go!
 
-**Usage**
+## Usage
 Have a look at the example workflow (json or .png), for up to date informations on usage and a working example.
 - in  Load Image (LOOP) node browse for an image from **output folder** (or feed the field with its name e.g. 'image.png'). **Always** work on a copy of your source file (if you don't want it to be overwritten).
 - Connect the path output from Load Image (LOOP) to the image_path input of Save Image (LOOP).
 - The mask input in Save Image (LOOP) is optional.
 - Enable save steps if you want to keep a copy of the file at each iteration.
 
-**Limitations**
+## Limitations
 - No support for lists or batch inputs.
 - Not as user friendly as I want it to be out of the box (some small lacks in code to fix later.)
 
-**Future plans**
+## Future plans
 - adding some sort of mask edit bridge in the Loop crop node
 - more file format outputs
 - better code
@@ -122,11 +122,12 @@ If you encounter issues or have suggestions, ask on the repo ! :)
 
 If you enjoy this project and want to boost its development, just leave a star : your support makes a difference! ♥️
 
-MIT License. version 0.2
+**MIT License. version 0.2**
 https://github.com/Hullabalo/ComfyUI-Loop/
 Thanks to rgthree, chrisgoringe, pythongosssss and many, many many others for their contributions, how-to's, code snippets etc.
 
 ## Icon Attribution
 Icons from `/icons` directory Icons are based on icon set from PAOMedia :
 https://www.iconfinder.com/paomedia/icon-sets
-and licensed under [Creative Commons Attribution 3.0 Unported] (https://creativecommons.org/licenses/by/3.0/deed.en)
+and licensed under [Creative Commons Attribution 3.0 Unported] (https://creativecommons.org/licenses/by/3.0/deed.en).
+All other images in video and examples are CC0 (wikimedia commons)
