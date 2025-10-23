@@ -28,7 +28,7 @@ The preview represents a downscaled version of the current image input, while th
 | `size` | INT | 512 | 256-2048 | Crop size (increments of 8) |
 | `color` | LIST | "black" | ["black","grey","red","green","blue"] | Preview rectangle color |
 | `show_mask` | boolean | True | - | show binary mask preview |
-| `mask` | MASK | - | - | Optional mask (alpha channel) |
+| `mask` | MASK | - | - | Optional mask |
 
 **Outputs:**
 - `source`: Original image
