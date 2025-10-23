@@ -15,7 +15,7 @@ TL;DR : Revisited code from A to Z. Crop your images and masks, loop your files,
 
 [loop_and_paste.webm](https://github.com/user-attachments/assets/83c2a7b8-c854-4681-9773-8110bdd753aa)
 
-## ♾️ Image Crop (`ImageCropLoop`)
+## ♾️ Image Crop
 **Functionality:** Interactive image cropping with live preview. Supports some keyboard controls (PageUp/Down to resize).
 
 **Inputs:**
@@ -39,7 +39,7 @@ TL;DR : Revisited code from A to Z. Crop your images and masks, loop your files,
 
 ---
 
-## ♾️ Paste Image (`ImagePasteLoop`)
+## ♾️ Paste Image
 **Functionality:** Pastes cropped images onto source images with optional masking/blending.
 
 **Inputs:**
@@ -57,7 +57,7 @@ TL;DR : Revisited code from A to Z. Crop your images and masks, loop your files,
 ---
 [loop_and_save_any.webm](https://github.com/user-attachments/assets/d6e1c707-8403-419d-91ff-b470b1599d01)
 
-## ♾️ Loop Any (`LoopAny`)
+## ♾️ Loop Any
 **Functionality:** Loops various file types (images, masks, latents, audio, text) from ComfyUI's output directory or one of its subfolders
 
 **Inputs:**
@@ -79,7 +79,7 @@ TL;DR : Revisited code from A to Z. Crop your images and masks, loop your files,
 
 ---
 
-## ♾️ Save Any (`SaveAny`)
+## ♾️ Save Any
 **Functionality:** Saves various data types to 'path' directory with optional versioned backups and optional preview.
 
 **Inputs:**
@@ -113,9 +113,9 @@ Have a look at the example workflow (json or .png), for up to date informations 
 - Not as user friendly as I want it to be out of the box (some small lacks in code to fix later.)
 
 ## Future plans
-- adding some sort of mask edit bridge in the Loop crop node
+- adding some kind of mask edit capabilities in the 'Image Crop' node
 - more file format outputs
-- better code
+- Better code, without changing the developer ahah
 
 I plan to revisit the code later but it works well for basic use (don't judge a fish by its ability to climb a tree, I do my best :D). 
 If you encounter issues or have suggestions, ask on the repo ! :)
