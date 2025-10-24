@@ -4,11 +4,14 @@ ComfyUI-Loop is essentially a pair of nodes designed to create a simple file loo
 
 ## 0.2 version - last changes 10/23/2025 :
 Better integration with last ComfyUI version. Better code structure.
-- Now there's only four nodes for two main usages, looping files and visual cutting-pasting: 
-  LoopAny -> SaveAny
+- Now there's only four nodes for two main usages, looping files and visual cutting-pasting:
+  
+  **[Loop Any] -> [Save Any]**
+  
   loop any file type : image (png), mask (png), latent (image/audio/whatever), audio (flac), string (or int/float) saved as text file.
 
-  ImageCrop -> ImagePaste
+  **[Image Crop] -> [Paste Image]**
+  
   ImageCrop now works with last Comfy frontend, lastly tested with ComfyUI v0.3.64, ComfyUI_Frontend v1.27.10
 
 TL;DR : Revisited code from A to Z. Crop your images and masks, loop your files, the fun way.
