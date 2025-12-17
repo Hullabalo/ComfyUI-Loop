@@ -2,6 +2,8 @@ ComfyUI nodes for interactive image manipulation and flexible file looping. Prov
 
 ComfyUI-Loop is essentially a pair of nodes designed to create a simple file loop within your workflows. The operating principle is straightforward: the Save Any node saves an image by overwriting the file specified in the 'path' field, making it automatically available for the next iteration. This functionality is primarily intended for inpainting workflows.
 
+### COMFYUI-LOOP NODES ARE NOT COMPATIBLE WITH NODES 2.0 (and almost certainly never will be, for all the good reasons discussed elsewhere). ###
+
 ## 0.2 version - last changes 10/23/2025 :
 Better integration with last ComfyUI version. Better code structure.
 - Now there's only four nodes for two main usages, looping files and visual cutting-pasting:
