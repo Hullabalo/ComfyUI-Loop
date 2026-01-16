@@ -1,4 +1,4 @@
-ComfyUI nodes for interactive image manipulation and flexible file looping. Provides four specialized nodes for cropping, pasting, looping and saving IMAGE, LATENT, AUDIO and STRING file types with (for images and masks) preview capabilities.
+ComfyUI nodes for interactive image manipulation and flexible file looping. Provides four specialized nodes for cropping, pasting, looping and saving IMAGE, LATENT, AUDIO and STRING file types, with preview capabilities for images and masks.
 
 ComfyUI-Loop is essentially a pair of nodes designed to create a simple file loop within your workflows. The operating principle is straightforward: the Save Any node saves an image by overwriting the file specified in the 'path' field, making it automatically available for the next iteration. This functionality is primarily intended for inpainting workflows.
 
