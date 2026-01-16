@@ -4,6 +4,8 @@ ComfyUI-Loop is essentially a pair of nodes designed to create a simple file loo
 
 ### COMFYUI-LOOP NODES ARE NOT COMPATIBLE WITH NODES 2.0 (and almost certainly never will be, for all the good reasons discussed elsewhere). ###
 
+All nodes tested, working with ComfyUI from 0.3.64 to 0.8.2, and ComfyUI_Frontend from v1.27.10 to v1.36.13
+
 ## 0.2 version - last changes 10/23/2025 :
 Better integration with last ComfyUI version. Better code structure.
 - Now there's only four nodes for two main usages, looping files and visual cutting-pasting:
@@ -14,7 +16,7 @@ Better integration with last ComfyUI version. Better code structure.
 
   **[Image Crop] -> [Paste Image]**
   
-  ImageCrop now works with last Comfy frontend, lastly tested with ComfyUI v0.3.64, ComfyUI_Frontend v1.27.10
+  ImageCrop works with last Comfy frontend (excepting Nodes 2.0, of course :) )
 
 TL;DR : Revisited code from A to Z. Crop your images and masks, loop your files, the fun way.
 
